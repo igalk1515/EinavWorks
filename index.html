@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Portfolio</title>
+    <style>
+      #slideshow-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        max-width: max-content;
+        margin: auto;
+        flex-wrap: wrap;
+        #stopButton {
+          background-color: #f1f1f1;
+          padding: 10px 20px;
+          font-size: 30px;
+          cursor: pointer;
+          border-radius: 5px;
+          margin: 10px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .slide.fade {
+          animation-name: fade;
+          animation-duration: 1.5s;
+          min-width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 80%;
+          }
+        }
+      }
+
+      .slide {
+        display: none;
+      }
+
+      .prev {
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        padding: 16px;
+        color: rgb(19, 18, 18);
+        font-weight: bold;
+        font-size: 50px;
+        user-select: none;
+      }
+      .next {
+        cursor: pointer;
+        position: relative;
+        top: 50%;
+        padding: 16px;
+        color: rgb(19, 18, 18);
+        font-weight: bold;
+        font-size: 50px;
+        user-select: none;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slideshow-container">
+      <button id="stopButton">Stop Slideshow</button>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/1.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/2.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/3.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/4.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/5.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/6.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/7.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/8.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/9.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <div class="slide fade">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <img src="./images/11.png" style="width: 80%" />
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </div>
+
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      var slideInterval = setInterval(function () {
+        plusSlides(1);
+      }, 2000);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName('slide');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        slides[slideIndex - 1].style.display = 'flex';
+      }
+
+      function stopSlideshow() {
+        clearInterval(slideInterval);
+      }
+
+      document
+        .getElementById('stopButton')
+        .addEventListener('click', stopSlideshow);
+    </script>
+  </body>
+</html>
